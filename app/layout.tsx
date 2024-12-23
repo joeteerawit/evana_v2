@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-screen bg-gradient-to-br from-gray-200 to-yellow-100 ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`min-h-screen max-h-max bg-gradient-to-br from-gray-100 via-yellow-50 to-yellow-100 ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="container mx-auto mt-2 space-y-3">
           <Navbar />

@@ -40,8 +40,8 @@ export default () => {
           </svg>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col items-center justify-center p-1 mt-4 border-zinc-100 rounded-full bg-zinc-50 md:flex-row rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li className="p-1 bg-zinc-700 rounded-full w-24 text-center">
+          <ul className="font-medium flex flex-col items-center justify-center p-1 mt-4 opacity-70 border-zinc-100 rounded-full bg-zinc-50 md:flex-row rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li className="p-1 bg-zinc-900 rounded-full w-24 text-center">
               <a
                 href="#"
                 className="block py-2 px-3 text-white rounded md:bg-transparent"

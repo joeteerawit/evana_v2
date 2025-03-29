@@ -1,23 +1,29 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-type DropdownProps = {
-  value?: string
+export default ({
+  name,
+  value,
+  label,
+  options,
+  isError,
+  errorMessage,
+  placeholder = '',
+  className = '',
+  onChange,
+  onBlur,
+}: {
+  name: string
+  value: string
   label: string
+  isError?: boolean
+  errorMessage?: string
   options: string[]
   placeholder?: string
   className?: string
   onChange?: (year: string) => void
-}
-
-export default ({
-  value,
-  label,
-  options,
-  placeholder = '',
-  onChange,
-  className = '',
-}: DropdownProps) => {
+  onBlur?: () => void
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [selectedYear, setSelectedYear] = useState<string | ''>('')
   const dropdownRef = useRef<HTMLDivElement | null>(null)
@@ -45,16 +51,19 @@ export default ({
   }, [])
 
   const handleYearSelect = (year: string): void => {
+    console.log('select year')
+
     setSelectedYear(year)
     setIsOpen(false)
     onChange?.(year)
+    onBlur?.()
   }
 
   return (
-    <div ref={dropdownRef} className={`relative ${className}`}>
+    <div ref={dropdownRef} className="relative">
       <div>
         <label
-          htmlFor="year"
+          htmlFor={name}
           className="block ml-3 mb-2 text-base font-medium text-gray-600 dark:text-white"
         >
           {label}
@@ -62,10 +71,11 @@ export default ({
         <div className="relative">
           <input
             type="text"
-            id="year"
-            className="bg-white text-sm rounded-full min-w-52 max-w-72 block p-3 focus:outline-yellow-500 cursor-pointer"
+            id={name}
+            className={className}
             value={selectedYear || ''}
             onClick={() => setIsOpen(!isOpen)}
+            onBlur={onBlur}
             readOnly
             placeholder={placeholder}
           />
@@ -88,7 +98,9 @@ export default ({
           </div>
         </div>
       </div>
-
+      {isError && (
+        <p className="ml-3 mt-1 text-sm text-red-500">{errorMessage}</p>
+      )}
       {isOpen && (
         <div className="absolute z-10 w-full mt-1 bg-zinc-50 rounded-2xl shadow-lg max-h-60 overflow-auto">
           {years.map((year) => (

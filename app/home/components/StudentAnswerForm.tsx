@@ -1,21 +1,13 @@
 'use client'
 import { useState } from 'react'
 
-type KeyTableProps = {
+export default ({
+  numberOfExam,
+  numberOfStudents,
+}: {
   numberOfExam: number
   numberOfStudents: number
-}
-
-type TableHeaderProps = {
-  headers: number[]
-}
-
-type TableBodyProps = {
-  headers: number[]
-  students: number[]
-}
-
-export default ({ numberOfExam, numberOfStudents }: KeyTableProps) => {
+}) => {
   const [tableHeaders] = useState(() => {
     return Array.from({ length: numberOfExam }, (_, i) => i + 1)
   })
@@ -23,7 +15,7 @@ export default ({ numberOfExam, numberOfStudents }: KeyTableProps) => {
     return Array.from({ length: numberOfStudents }, (_, i) => i + 1)
   })
 
-  const TableHeader = ({ headers }: TableHeaderProps) => {
+  const TableHeader = ({ headers }: { headers: number[] }) => {
     return (
       <tr>
         <th scope="col" className="text-center px-4 py-6 min-w-40">
@@ -38,24 +30,26 @@ export default ({ numberOfExam, numberOfStudents }: KeyTableProps) => {
     )
   }
 
-  const TableBody = ({ headers, students }: TableBodyProps) => {
+  const TableBody = ({
+    headers,
+    students,
+  }: {
+    headers: number[]
+    students: number[]
+  }) => {
     return students.map((_, index) => {
       return (
         <tr
           key={index}
           className="bg-white/40 group transition-all opacity-70 dark:bg-gray-800 dark:border-gray-700 rounded-xl hover:bg-yellow-400 dark:hover:bg-gray-600"
         >
-          <td
-            className="px-4 py-3 min-w-40 text-gray-900 first:group-hover:rounded-l-3xl last:group-hover:rounded-r-3xl 
-          group-hover:border-transparent"
-          >
+          <td className="px-4 py-3 min-w-40 text-gray-900 first:group-hover:rounded-l-3xl last:group-hover:rounded-r-3xl group-hover:border-transparent">
             Test
           </td>
           {headers.map((n) => (
             <td
               key={n}
-              className="px-4 py-3 minx-w-20 text-gray-900 first:group-hover:rounded-l-3xl last:group-hover:rounded-r-3xl 
-              group-hover:border-transparent"
+              className="px-4 py-3 minx-w-20 text-gray-900 first:group-hover:rounded-l-3xl last:group-hover:rounded-r-3xl group-hover:border-transparent"
             >
               <input
                 onChange={(e) => {}}

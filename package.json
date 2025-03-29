@@ -1,5 +1,5 @@
 {
-  "name": "iguana",
+  "name": "evana_v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,23 +10,20 @@
     "tauri:dev": "npx tauri dev"
   },
   "dependencies": {
-    "flowbite-react": "^0.10.2",
-    "next": "15.1.7",
+    "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.0",
-    "@tailwindcss/postcss": "^4.0.8",
-    "@tauri-apps/cli": "^2.2.7",
-    "@types/node": "^22.13.5",
-    "@types/react": "^19.0.10",
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.0.16",
+    "@tauri-apps/cli": "^2.4.0",
+    "@types/node": "^22.13.13",
+    "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
-    "eslint": "^9.21.0",
-    "eslint-config-next": "15.1.7",
-    "eslint-plugin-import": "^2.31.0",
+    "npm-check-updates": "^17.1.16",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.8",
-    "typescript": "^5.7.3"
+    "tailwindcss": "^4.0.16",
+    "typescript": "^5.8.2"
   }
 }
